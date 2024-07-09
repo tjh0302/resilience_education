@@ -1,2 +1,6 @@
 pylint
-
+jupyterlab
+langchain-community
+jq
+sentence-transformers
+langchain-chroma

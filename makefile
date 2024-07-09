@@ -2,8 +2,10 @@ default:
 	@cat makefile
 
 env:
-	python3 -m venv env; . env/bin/activate ; pip install --upgrade pip
+	python3 -m venv env; source env/bin/activate ; pip install --upgrade pip
 
 update: env
-	. env/bin/activate; pip install -r requirements.txt
+	source env/bin/activate; pip install -r requirements.txt
 
+jupyterlab: update
+	source env/bin/activate ; jupyter lab
