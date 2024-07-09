@@ -4,3 +4,4 @@ langchain-community
 jq
 sentence-transformers
 langchain-chroma
+beautifulsoup4
