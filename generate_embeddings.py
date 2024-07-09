@@ -86,7 +86,7 @@ all_splits = text_splitter.split_documents(documents)
 
 # Instantiate embedding model 
 model_name = "multi-qa-mpnet-base-dot-v1"
-model_kwargs = {'device': 'cpu'}
+model_kwargs = {'device': 'cuda' if torch.cuda.is_available() else 'cpu'}
 encode_kwargs = {'normalize_embeddings': False}
 hf = HuggingFaceEmbeddings(
     model_name=model_name,
