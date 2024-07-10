@@ -18,7 +18,7 @@ if __name__ == "__main__":
     json_files_updated_path = get_json_files_path()
 
 
-# Custom function to extract metadata
+# Custom metadata function 
 def metadata_func(record: dict, metadata: dict) -> dict:
     metadata["TitleNumber"] = record.get("TitleNumber")
     metadata["TitleName"] = record.get("TitleName")
@@ -39,9 +39,9 @@ def metadata_func(record: dict, metadata: dict) -> dict:
         links = soup.find_all('a', href=True)
         for link in links:
             hrefs.append(link['href'])
-    
-    # Combine all hrefs into a single list
-    metadata['Hrefs'] = hrefs
+            
+    # Convert hrefs list into a single string
+    metadata['Hrefs'] = "; ".join(hrefs) 
     
     # Extract all 'Body' contents
     body_contents = [chapter.get("Body", "") for chapter in chapter_list]
