@@ -101,6 +101,9 @@ persist_directory = os.path.join(current_directory, 'embeddings')
 # Create the vector store and specify the persist directory
 vectorstore = Chroma(persist_directory=persist_directory, embedding_function=hf)
 
-# Generate embeddings and store in persist directory 
-vectorstore = Chroma.from_documents(documents=all_splits, embedding=hf, persist_directory=persist_directory)
+# Generate embeddings in batches and store in persist directory 
+batch_size_limit = 41000
+for i in range(0, len(all_splits), batch_size_limit):
+    batch = all_splits[i:i+batch_size_limit]
+    vectorstore.add_documents(documents=batch, embedding=hf)
 

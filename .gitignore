@@ -3,6 +3,7 @@ env/
 
 # Ignore all contents of json_files_updated folder
 json_files_updated/
+json_files_test/
 
 # Other common ignores
 *.pyc
