@@ -1,7 +1,16 @@
-# resilience_education
+# Resilience Education - chatbot for helping formerly incarcerated job-seekers navigate VA legal restrictions.
 
-## Step 1: Download the LLM using Ollama 
+Brief description of the project.
 
-## Step 2: Clone repo and import zipped "embeddings" folder
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [Contributing](#contributing)
+- [License](#license)
 
-##
+## Installation
+
+* Step 1: Download the LLM using Ollama 
+
+* Step 2: Clone repo and import zipped "embeddings" folder
