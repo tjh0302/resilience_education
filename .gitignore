@@ -20,3 +20,7 @@ __pycache__/
 
 # Ignore the embeddings 
 embeddings/*
+
+
+# Ignore trulens database
+default.sqlite
