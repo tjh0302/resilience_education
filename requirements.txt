@@ -1,7 +1,10 @@
 pylint
 jupyterlab
+langchain
 langchain-community
 jq
 sentence-transformers
 langchain-chroma
 beautifulsoup4
+trulens_eval
+
