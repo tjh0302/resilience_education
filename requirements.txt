@@ -6,5 +6,4 @@ jq
 sentence-transformers
 langchain-chroma
 beautifulsoup4
-trulens_eval
-litellm>=1.25.2
+langchain_core
