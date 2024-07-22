@@ -24,3 +24,6 @@ embeddings/*
 
 # Ignore trulens database
 default.sqlite
+
+# Ignore chat history sqlite 
+sqlite.db
