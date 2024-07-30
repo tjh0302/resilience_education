@@ -131,5 +131,16 @@ while True:
      pip install git+https://github.com/your-username/repo-name.git@your-feature-branch
      ```
    - Replace your-username with your GitHub username, repo-name with the repository name, and your-feature-branch with the name of the branch where you made your changes.
-  
+
+  ## License
+
+This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file for more details.
+
+### Summary
+
+- **Permissions:** Allows use, distribution, and creation of derivative works, subject to the conditions.
+- **Conditions:** Must include a copy of the license in redistributions, provide a notice of changes, and include a copy of the NOTICE file.
+- **Limitation:** The software is provided "as is", without warranties or conditions of any kind.
+
+For more details, please refer to the full [Apache License 2.0 text](https://www.apache.org/licenses/LICENSE-2.0).
 
