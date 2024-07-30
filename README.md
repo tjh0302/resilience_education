@@ -30,7 +30,7 @@ Usage
 Example of how the package works
    import <our package>
    
-
+```bash
 ├── LICENSE
 ├── README.md
 ├── makefile
@@ -55,3 +55,4 @@ Example of how the package works
 ├── setup.py
 └── tests
     └── test_rag.py
+```
