@@ -24,7 +24,7 @@ setup(
     },
     classifiers=[
         'Programming Language :: Python :: 3',
-        'License :: OSI Approved :: MIT License',
+        'License :: OSI Approved :: Apache 2.0',
         'Operating System :: OS Independent',
     ],
     python_requires='>=3.10.9',  # Adjust based on your project's Python version requirements

@@ -18,10 +18,8 @@ embeddings_path = "/Users/zsk4gm/Desktop/resilience_education/embeddings"
 rag_session = create_rag_session(session_id, embeddings_path)
 
 def user_asks():         
-    # Ask questions interactively
     while True:
         response = rag_session.ask()
-        print(response)
 
 if __name__ == '__main__': 
     user_asks()

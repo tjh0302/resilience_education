@@ -7,11 +7,15 @@ env:
 update: env
 	source env/bin/activate && pip install -r requirements.txt 
 
-jupyterlab: update
+develop: env
+	source env/bin/activate && pip install -r requirements-dev.txt
+
+jupyterlab: develop
 	source env/bin/activate ; jupyter lab
 
+PYTHONPATH := $(CURDIR)
 test: update
-	source env/bin/activate && PYTHONPATH=/Users/zsk4gm/Desktop/resilience_education pytest
+	source env/bin/activate && PYTHONPATH=$(PYTHONPATH) pytest
 
 run: update
 	source env/bin/activate && PYTHONWARNINGS="ignore" python3 rag_executable.py
