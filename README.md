@@ -50,7 +50,7 @@ rag_session = create_rag_session(session_id, embeddings_path)
 rag_session.ask()
 ```
 
-### Example 2 - 
+### Example 2 - Query Stream
 ```python
 
 while True:
