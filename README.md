@@ -1,6 +1,5 @@
-# RAGsilience - chatbot for helping formerly incarcerated job-seekers navigate VA legal restrictions.
-
-Brief description of the project.
+# RAGsilience
+A chatbot for helping formerly incarcerated job-seekers navigate VA legal restrictions.
 
 ## Table of Contents
 - [Installation](#installation)
