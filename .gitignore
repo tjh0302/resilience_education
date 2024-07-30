@@ -20,12 +20,11 @@ __pycache__/
 # Ignore Jupyter Notebook checkpoints 
 .ipynb_checkpoints/
 
-# Ignore the embeddings 
-embeddings/*
-
-
 # Ignore trulens database
 default.sqlite
 
 # Ignore chat history sqlite 
 sqlite.db
+
+# Ignore embeddings 
+embeddings/*

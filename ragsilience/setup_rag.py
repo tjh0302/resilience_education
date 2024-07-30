@@ -4,7 +4,7 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.llms import Ollama
 from langchain_core.callbacks import CallbackManager, StreamingStdOutCallbackHandler
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain.chains import create_history_aware_retriever 
+from langchain.chains import create_history_aware_retriever
 from langchain_core.output_parsers import StrOutputParser
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain.chains import create_retrieval_chain
@@ -14,9 +14,6 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 from typing import List, Dict
 from langchain_core.documents import Document
 from langchain.prompts import PromptTemplate
-
-# Define the shared persist directory
-PERSIST_DIRECTORY = os.path.join(os.getcwd(), 'embeddings')
 
 class OllamaSingleton:
     _instance = None
@@ -45,19 +42,19 @@ class VectorstoreSingleton:
     _instance = None
 
     @staticmethod
-    def get_instance():
+    def get_instance(persist_directory):
         if VectorstoreSingleton._instance is None:
-            VectorstoreSingleton()
+            VectorstoreSingleton(persist_directory)
         return VectorstoreSingleton._instance
 
-    def __init__(self):
+    def __init__(self, persist_directory):
         if VectorstoreSingleton._instance is not None:
             raise Exception("This class is a singleton!")
         else:
-            self._initialize_vectorstore()
+            self._initialize_vectorstore(persist_directory)
             VectorstoreSingleton._instance = self
 
-    def _initialize_vectorstore(self):
+    def _initialize_vectorstore(self, persist_directory):
         model_name = "multi-qa-mpnet-base-dot-v1"
         model_kwargs = {'device': 'cpu'}
         encode_kwargs = {'normalize_embeddings': False}
@@ -67,10 +64,10 @@ class VectorstoreSingleton:
             encode_kwargs=encode_kwargs
         )
 
-        self.vectorstore = Chroma(persist_directory=PERSIST_DIRECTORY, embedding_function=hf)
+        self.vectorstore = Chroma(persist_directory=persist_directory, embedding_function=hf)
 
-def create_rag_chain():
-    vectorstore = VectorstoreSingleton.get_instance().vectorstore
+def create_rag_chain(persist_directory):
+    vectorstore = VectorstoreSingleton.get_instance(persist_directory).vectorstore
     retriever = vectorstore.as_retriever()
     llm_instance = OllamaSingleton.get_instance().llm
 
@@ -117,7 +114,7 @@ def create_rag_chain():
     contextualize_q_system_prompt = '''Given a chat history and the latest user question 
     which might reference context in the chat history, formulate a standalone question which can 
     be understood without a chat history. Do NOT answer the question, just reformulate it if needed 
-    and otherwise return it as is.'''
+    and otherwise return it as is. Do not stream this new question'''
 
     contextualize_q_prompt = ChatPromptTemplate.from_messages(
         [
@@ -159,9 +156,10 @@ def create_rag_chain():
     return rag_chain
 
 class RAGSession:
-    def __init__(self, session_id):
+    def __init__(self, session_id, persist_directory):
         self.session_id = session_id
-        self.chain = create_rag_chain()
+        self.chain = create_rag_chain(persist_directory)
+        self.persist_directory = persist_directory
         self.history = SQLChatMessageHistory(
             session_id=session_id, connection_string="sqlite:///sqlite.db"
         )
@@ -181,7 +179,6 @@ class RAGSession:
             {"input": input_query},
             config={"configurable": {"session_id": self.session_id}}
         )
-        return result["answer"]
 
-def create_rag_session(session_id: str) -> RAGSession:
-    return RAGSession(session_id)
+def create_rag_session(session_id: str, persist_directory: str) -> RAGSession:
+    return RAGSession(session_id, persist_directory)
