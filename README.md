@@ -31,3 +31,27 @@ Example of how the package works
    import <our package>
    
 
+├── LICENSE
+├── README.md
+├── makefile
+├── pkg_tree.md
+├── rag_dev
+│   ├── generate_embeddings.ipynb
+│   ├── generate_embeddings.py
+│   ├── rag_executable.ipynb
+│   ├── setup_rag.ipynb
+│   └── test_rag.ipynb
+├── rag_executable.py
+├── ragas_results
+│   ├── ragas_results.csv
+│   ├── ragas_results2.csv
+│   ├── test.csv
+│   └── test2.csv
+├── ragsilience
+│   ├── __init__.py
+│   └── setup_rag.py
+├── requirements-dev.txt
+├── requirements.txt
+├── setup.py
+└── tests
+    └── test_rag.py
