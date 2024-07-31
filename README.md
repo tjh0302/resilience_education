@@ -16,14 +16,6 @@ A chatbot for helping formerly incarcerated job-seekers navigate VA legal restri
 
 #### GUI - 
 
-
-
-(remove?) Step 2: Clone repo (this is needed to retrain the model but not to simply use the model)
-
-If you do not have a personal access token yet here are the instruction to create Tokens(classic)
-Then you can clone the repository
-     git clone https://<your_access_token>@github.com/hparten/resilience_education.git
-
 ### Step 2: Download zipped "embeddings" folder
 
 Download the zipped embeddings folder your email. Save the folder locally and save the pathname for configuring the package.
