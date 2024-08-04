@@ -12,9 +12,9 @@ A chatbot for helping formerly incarcerated job-seekers navigate VA legal restri
 
 ### Step 1: Download the LLM using Ollama
 
-#### CLI - 
+#### Locally - Follow the instructions [here](https://ollama.com/) to run Ollama to your locale machine 
 
-#### GUI - 
+#### EC2 instance - Follow the instruction [here](https://www.allenyan.ca/blog/2024-03-02-how-to-deploy-ollama-server-on-amazon-ec2-with-gpu-in-10-min-zh) to run Ollama on an EC2 instance
 
 ### Step 2: Download zipped "embeddings" folder
 
