@@ -1,0 +1,6 @@
+-r requirements.txt
+pylint==3.2.5
+jupyterlab==4.2.3
+ragas @ git+https://github.com/explodinggradients/ragas.git@353def19b762a44f11ee633bd2ae0f780f180ed6
+datasets==2.20.0
+pytest==8.3.2

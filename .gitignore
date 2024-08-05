@@ -4,6 +4,8 @@ env/
 # Ignore all contents of json_files_updated folder
 json_files_updated/
 json_files_test/
+json_files_ragas/
+json_files_ragas3/
 
 # Other common ignores
 *.pyc
@@ -18,9 +20,11 @@ __pycache__/
 # Ignore Jupyter Notebook checkpoints 
 .ipynb_checkpoints/
 
-# Ignore the embeddings 
-embeddings/*
-
-
 # Ignore trulens database
 default.sqlite
+
+# Ignore chat history sqlite 
+sqlite.db
+
+# Ignore embeddings 
+embeddings/*
